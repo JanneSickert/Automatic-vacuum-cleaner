@@ -41,9 +41,10 @@ void makeTheWay() {
 
 void makeModi() {
 	if (index == SIZE_MUSTER) {
+		index = index - 1;
+		driveBack();
 		makeTheWay();
 		index = 0;
-		driveBack();
 	}
 	motorModi = muster[index];
 	index++;
@@ -75,6 +76,16 @@ void driveBack() {
 	delay();
 	MOTOR = LEFT;
 	delay();
+	while (index > (-1)) {
+		if (muster[index] == LEFT) {
+			drive(RIGHT);
+		} else if (muster[index] == RIGHT) {
+			drive(LEFT);
+		} else {
+			drive(LEFT + RIGHT);
+		}
+		index--;
+	}
 }
 
 void drive(char dir) {
