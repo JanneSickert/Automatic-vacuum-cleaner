@@ -4,3 +4,4 @@ char getMotorSettings();
 void initMuster();
 void makeModi();
 void obstacle();
+char isActiv();

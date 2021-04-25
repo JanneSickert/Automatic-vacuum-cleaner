@@ -10,6 +10,7 @@ const unsigned char MODI[] = {LEFT + RIGHT, LEFT, LEFT, LEFT + RIGHT, RIGHT, RIG
 unsigned char muster[SIZE_MUSTER];
 unsigned int index = 0;
 unsigned char motorModi;
+unsigned char activ = 1;
 
 char getMotorSettings() {
 	return motorModi;
@@ -34,6 +35,10 @@ void optimizeWay(char direction) {
 		}
 }
 
+char isActiv() {
+	return activ;
+}
+
 void makeTheWay() {
 	optimizeWay(LEFT);
 	optimizeWay(RIGHT);
@@ -44,7 +49,7 @@ void makeModi() {
 		index = index - 1;
 		driveBack();
 		makeTheWay();
-		index = 0;
+		activ = 0;
 	}
 	motorModi = muster[index];
 	index++;
