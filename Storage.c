@@ -60,3 +60,22 @@ void optimizeWay(char direction) {
 			}
 		}
 }
+
+void reverseEntrys() {
+	char a = 0, o = MAX - 1, st;
+	while (a < MAX) {
+		st = Entry[a].way;
+		Entry[a].way = Entry[o].way;
+		Entry[o].way = st;
+		a++;
+		o--;
+	}
+	for (st = 0; st < MAX; st++) {
+		if (Entry[st].way == LEFT) {
+			Entry[st].way = RIGHT;
+		}
+		if (Entry[st].way == RIGHT) {
+			Entry[st].way = LEFT;
+		}
+	}
+}

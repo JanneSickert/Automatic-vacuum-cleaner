@@ -9,7 +9,7 @@ void main() {
 }
 
 void rasenmaeher() {
-	while (isActiv() == 1) {
+	while (isActiv() > 0) {
 		if (DISTANCE < 100) {
 			obstacle();
 		} else {
@@ -17,4 +17,5 @@ void rasenmaeher() {
 		}
 	}
 	MOTOR = 0;
+	makeTheWay();
 }

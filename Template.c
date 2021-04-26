@@ -14,9 +14,15 @@ char isActiv() {
 
 void makeModi() {
 	if (havePlace() == 0) {
-		driveBack();
-		activ = 0;
-		makeTheWay();
+		if (activ == 1) {
+			driveBack();
+			reverseEntrys(); // calculate the way back.
+			activ = 2;
+		}
+		if (activ == 2) {
+			drive(RIGHT + LEFT);
+			activ = 0;
+		}
 	}
 }
 
@@ -49,8 +55,6 @@ void driveBack() {
 	drive(RIGHT);
 	drive(RIGHT);
 	drive(LEFT);
-	// TODO back way
-	drive(RIGHT + LEFT);
 }
 
 void drive(char dir) {
