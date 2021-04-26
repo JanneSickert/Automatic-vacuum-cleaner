@@ -1,96 +1,56 @@
 #include <Template.h>
 
-#define SIZE_MUSTER 8
-
 void driveBack();
+void makeModi();
 void drive(char dir);
 
 const unsigned char MODI[] = {LEFT + RIGHT, LEFT, LEFT, LEFT + RIGHT, RIGHT, RIGHT, LEFT + RIGHT, LEFT};
 
-unsigned char muster[SIZE_MUSTER];
-unsigned int index = 0;
-unsigned char motorModi;
 unsigned char activ = 1;
-
-char getMotorSettings() {
-	return motorModi;
-}
-
-void optimizeWay(char direction) {
-		int i;
-		for (i = 0; i < SIZE_MUSTER - 2; i++) {
-			if (muster[i] == direction) {
-				if (muster[i + 1] == direction) {
-					if (muster[i + 2] == direction) {
-						if (direction == LEFT) {
-							muster[i] = RIGHT;
-						} else {
-							muster[i] = LEFT;
-						}
-						muster[i + 1] = LEFT + RIGHT;
-						muster[i + 2] = LEFT + RIGHT;
-					}
-				}
-			}
-		}
-}
 
 char isActiv() {
 	return activ;
 }
 
-void makeTheWay() {
-	optimizeWay(LEFT);
-	optimizeWay(RIGHT);
-}
-
 void makeModi() {
-	if (index == SIZE_MUSTER) {
-		index = index - 1;
+	if (havePlace() == 0) {
 		driveBack();
-		makeTheWay();
 		activ = 0;
+		makeTheWay();
 	}
-	motorModi = muster[index];
-	index++;
 }
 
 void initMuster() {
 	int i;
-	while (index < SIZE_MUSTER) {
+	while (havePlace() == 1) {
 		for (i = 0; i < 8; i++) {
-			if (index < SIZE_MUSTER) {
-				muster[index] = MODI[i];
-				index = index + 1;
+			if (havePlace() == 1) {
+				addMovement(MODI[i]);
 			}
 		}
 	}
-	index = 0;
+	drive(RIGHT + LEFT);
+}
+
+void nextMove() {
+	drive(getMovement());
+	incrementIndex();
+	makeModi();
 }
 
 void obstacle() {
-	MOTOR = LEFT;
-	muster[index] = LEFT;
-	delay();
+	changeCurrentMovement(LEFT);
+	drive(LEFT);
+	makeModi();
 }
 
 void driveBack() {
-	MOTOR = RIGHT;
-	delay();
-	delay();
-	delay();
-	MOTOR = LEFT;
-	delay();
-	while (index > (-1)) {
-		if (muster[index] == LEFT) {
-			drive(RIGHT);
-		} else if (muster[index] == RIGHT) {
-			drive(LEFT);
-		} else {
-			drive(LEFT + RIGHT);
-		}
-		index--;
-	}
+	drive(RIGHT);
+	drive(RIGHT);
+	drive(RIGHT);
+	drive(LEFT);
+	// TODO back way
+	drive(RIGHT + LEFT);
 }
 
 void drive(char dir) {

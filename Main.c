@@ -12,11 +12,8 @@ void rasenmaeher() {
 	while (isActiv() == 1) {
 		if (DISTANCE < 100) {
 			obstacle();
-			makeModi();
 		} else {
-			MOTOR = getMotorSettings();
-			delay();
-			makeModi();
+			nextMove();
 		}
 	}
 	MOTOR = 0;

@@ -406,6 +406,16 @@
               <FileType>5</FileType>
               <FilePath>.\Timer.h</FilePath>
             </File>
+            <File>
+              <FileName>Storage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Storage.c</FilePath>
+            </File>
+            <File>
+              <FileName>Storage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Storage.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

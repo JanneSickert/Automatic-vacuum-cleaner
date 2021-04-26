@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #define MOTOR P0
+#define DISTANCE P1
+
 #define RIGHT 1
 #define LEFT 2
-#define DISTANCE P1

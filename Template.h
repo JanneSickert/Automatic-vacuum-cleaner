@@ -1,7 +1,6 @@
-#include <Timer.h>
+#include <Storage.h>
 
-char getMotorSettings();
 void initMuster();
-void makeModi();
 void obstacle();
 char isActiv();
+void nextMove();
