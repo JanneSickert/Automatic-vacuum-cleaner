@@ -18,9 +18,9 @@ void makeModi() {
 			driveBack();
 			reverseEntrys(); // calculate the way back.
 			activ = 2;
-		}
-		if (activ == 2) {
+		} else if (activ == 2) {
 			drive(RIGHT + LEFT);
+			reverseEntrys();
 			activ = 0;
 		}
 	}

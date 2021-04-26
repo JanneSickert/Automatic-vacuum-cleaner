@@ -62,20 +62,20 @@ void optimizeWay(char direction) {
 }
 
 void reverseEntrys() {
-	char a = 0, o = MAX - 1, st;
+	char a = 0, o = MAX - 1, value1, value2;
 	while (a < MAX) {
-		st = Entry[a].way;
-		Entry[a].way = Entry[o].way;
-		Entry[o].way = st;
+		value1 = Entry[a].way;
+		value2 = Entry[o].way;
+		Entry[o].way = value1;
+		Entry[a].way = value2;
 		a++;
 		o--;
 	}
-	for (st = 0; st < MAX; st++) {
-		if (Entry[st].way == LEFT) {
-			Entry[st].way = RIGHT;
-		}
-		if (Entry[st].way == RIGHT) {
-			Entry[st].way = LEFT;
+	for (a = 0; a < MAX; a++) {
+		if (Entry[a].way == LEFT) {
+			Entry[a].way = RIGHT;
+		}else if (Entry[a].way == RIGHT) {
+			Entry[a].way = LEFT;
 		}
 	}
 }

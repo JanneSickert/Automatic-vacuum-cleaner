@@ -15,6 +15,7 @@ void rasenmaeher() {
 		} else {
 			nextMove();
 		}
+		STATE = isActiv();
 	}
 	MOTOR = 0;
 	makeTheWay();
