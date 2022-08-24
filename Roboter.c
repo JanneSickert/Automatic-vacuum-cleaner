@@ -57,11 +57,13 @@ void timer_isr() interrupt 1 {
 }
 
 // ---------------------------------------------------------------
-
-// // --------------------- Bewegungslogik -----------------------
+//
+//
+//
+// --------------------- Bewegungslogik --------------------------
 
 void vorwearts() {
-		int i = 0;
+	int i = 0;
     while (1) {
         MOTOR = VORWAERTS;
         delay();
