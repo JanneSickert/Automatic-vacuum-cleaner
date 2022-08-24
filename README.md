@@ -1,10 +1,15 @@
-# Automatic-vacuum-cleaner
+# Fansi's Rasenmäher Roboter
+
+--------------
+
+## Abituraufgabe 2021
+Paul hat einen Rasenmäher der immer 5 Zeiteinheiten<br>
+nach vorne fährt und dann den Linken oder Rechten<br>
+Motor für zwei Zeiteinheiten auschaltet, um eine<br>
+Kurve zu Fahren.
+
 <img src="exampleWay.bmp" alt="Example picture"/><br>
-- Each arrow represents a movement.
-- When an obstacle comes, it goes around it.
-- At the end it drives back independently.
-- After the way, the path is optimized so that it bypasses obstacles from the front.
-- The port assignments are in /Ports.h
+
 
 ## How to simulate
 You can simulate it in the Keil IDE
