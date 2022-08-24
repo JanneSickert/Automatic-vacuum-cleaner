@@ -8,7 +8,7 @@ nach vorne fährt und dann den Linken oder Rechten<br>
 Motor für zwei Zeiteinheiten auschaltet, um eine<br>
 Kurve zu Fahren.
 
-<img src="exampleWay.bmp" alt="Example picture"/><br>
+<img src="robo.bmp" alt="Example picture"/><br>
 
 
 ## How to simulate
