@@ -8,9 +8,9 @@
 #define VORWAERTS 3
 #define STOP 0
 
-// Zeitverzögerung
+// --------------------- Zeitverzögerung -------------------
 
-const unsigned char LOOP_VALUE[] = {100, 50};
+const unsigned char LOOP_VALUE[] = {25, 24};
 const unsigned char TR[] = {116, 0};
 
 unsigned char loop[] = {0, 0};
@@ -56,12 +56,20 @@ void timer_isr() interrupt 1 {
 	}
 }
 
-// ---------------------
+// ---------------------------------------------------------------
+
+// // --------------------- Bewegungslogik -----------------------
 
 void vorwearts() {
-    for (int i = 0; i < 5; ++i) {
+		int i = 0;
+    while (1) {
         MOTOR = VORWAERTS;
         delay();
+				++i;
+				if (i == 5) {
+					i = 0;
+					break;
+				}
     }
     MOTOR = STOP;
 }
@@ -80,13 +88,19 @@ void links() {
     MOTOR = STOP;
 }
 
-int main() {
-    initTimer();
-    while (true) {
+void startRasenmeaer() {
+	while (1) {
         vorwearts();
         links();
         vorwearts();
         rechts();
     }
+}
+
+// ---------------------------------------------------------------
+
+int main() {
+    initTimer();
+	startRasenmeaer();
     return 0;
 }
